@@ -11,7 +11,7 @@ def fibonacci_by_number(to_number):
             i = i + 1
         return fibonnaci_result
     except:
-        raise
+        raise ValueError("to_number no es un numero valido.")
 
 def reverse_list(original_list):
     """2.-Write a function reverse to reverse a list. Can you do this without using list slicing?"""
@@ -29,7 +29,7 @@ def reverse_list(original_list):
             j = j + 1
         return reversed_list
     except:
-        raise
+        raise ValueError("original_list no es una lista valida.")
 
 def cumulative_sum_list(original_list):
     """3.-Cumulative sum of a list [a, b, c, ...] is defined as [a, a+b, a+b+c, ...]. 
@@ -47,7 +47,8 @@ def cumulative_sum_list(original_list):
             j = j + 1
         return list_result
     except:
-            raise
+        raise ValueError("original_list no es una lista valida.")
+
 def cumulative_product_list(original_list):
     """4.-Write a function cumulative_product to compute cumulative product of a list of numbers."""
     try:
@@ -63,30 +64,40 @@ def cumulative_product_list(original_list):
             j = j + 1
         return list_result
     except:
-            raise
+        raise ValueError("original_list no es una lista valida.")
 
 def distinct_list(original_list):
     """5.-Write a function unique to find all the unique elements of a list. (int & strings)"""
-    return set(original_list)
+    try:
+        return set(original_list)
+    except:
+        raise ValueError("original_list no es una lista valida.")
 
 def duplicates_list(original_list):
     """6.-Write a function dups to find all duplicates in the list. (int & strings)"""
-    duplicate_list = [x for i,x in enumerate(original_list) if original_list.count(x) > 1]
-    return set(duplicate_list)
+    try:
+        duplicate_list = [x for i,x in enumerate(original_list) if original_list.count(x) > 1]
+        return set(duplicate_list)
+    except:
+        raise ValueError("original_list no es una lista valida.")
 
 def group_list(original_list,size):
     """7.-Write a function group(list, size) that take a list and splits into smaller lists of given size."""
-    groups = len(original_list) / size
-    grouped_list = []
-    if len(original_list) % size > 0:
-        groups = groups + 1
-    i = 0
-    while i < groups:
-        start = i * size 
-        end = start + size
-        grouped_list.append(original_list[start:end])
-        i = i + 1
-    return grouped_list
+    try:
+        groups = len(original_list) / size
+        grouped_list = []
+        if len(original_list) % size > 0:
+            groups = groups + 1
+        i = 0
+        while i < groups:
+            start = i * size 
+            end = start + size
+            grouped_list.append(original_list[start:end])
+            i = i + 1
+        return grouped_list
+    except:
+        raise ValueError("original_list no es una lista valida.")
+    
 # """1.- Call the fibonacci function"""
 print("1.- Call fibonacci_by_number(100)")
 print(fibonacci_by_number(100))
